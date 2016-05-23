@@ -5,6 +5,7 @@ description: A toolkit for creating efficient kernel tracing and manipulation pr
 apps:
     argdist:
         # TODO figure out why buffered output is broken.
+        # Terrible hack until snapcraft and snappy support CAP_SYS_ADMIN.
         command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/argdist
     bashreadline:
         command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/bashreadline
