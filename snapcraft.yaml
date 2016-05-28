@@ -4,101 +4,104 @@ summary: BPF Compiler Collection (BCC)
 description: A toolkit for creating efficient kernel tracing and manipulation programs
 apps:
     argdist:
-        # TODO figure out why buffered output is broken.
-        # Terrible hack until snapcraft and snappy support CAP_SYS_ADMIN.
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/argdist
+        # ubuntu-core-launcher mounts a new instance of devpts and python
+        # cannot grab a pty, so run unbuffered (-u).
+        #
+        # Snappy does not yet support CAP_SYS_ADMIN for unconfined snaps:
+        # https://bugs.launchpad.net/snappy/+bug/1586581
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/argdist
     bashreadline:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/bashreadline
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/bashreadline
     biolatency:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/biolatency
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/biolatency
     biosnoop:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/biosnoop
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/biosnoop
     biotop:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/biotop
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/biotop
     bitesize:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/bitesize
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/bitesize
     btrfsdist:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/btrfsdist
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/btrfsdist
     btrfsslower:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/btrfsslower
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/btrfsslower
     cachestat:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/cachestat
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/cachestat
     dcsnoop:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/dcsnoop
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/dcsnoop
     dcstat:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/dcstat
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/dcstat
     execsnoop:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/execsnoop
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/execsnoop
     ext4dist:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/ext4dist
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/ext4dist
     ext4slower:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/ext4slower
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/ext4slower
     filelife:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/filelife
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/filelife
     fileslower:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/fileslower
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/fileslower
     filetop:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/filetop
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/filetop
     funccount:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/funccount
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/funccount
     funclatency:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/funclatency
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/funclatency
     gethostlatency:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/gethostlatency
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/gethostlatency
     hardirqs:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/hardirqs
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/hardirqs
     killsnoop:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/killsnoop
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/killsnoop
     mdflush:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/mdflush
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/mdflush
     memleak:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/memleak
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/memleak
     offcputime:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/offcputime
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/offcputime
     offwaketime:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/offwaketime
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/offwaketime
     oomkill:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/oomkill
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/oomkill
     opensnoop:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/opensnoop
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/opensnoop
     pidpersec:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/pidpersec
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/pidpersec
     runqlat:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/runqlat
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/runqlat
     softirqs:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/softirqs
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/softirqs
     stackcount:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/stackcount
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/stackcount
     stacksnoop:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/stacksnoop
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/stacksnoop
     statsnoop:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/statsnoop
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/statsnoop
     syncsnoop:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/syncsnoop
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/syncsnoop
     tcpaccept:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/tcpaccept
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/tcpaccept
     tcpconnect:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/tcpconnect
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/tcpconnect
     tcpconnlat:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/tcpconnlat
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/tcpconnlat
     tcpretrans:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/tcpretrans
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/tcpretrans
     trace:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/trace
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/trace
     vfscount:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/vfscount
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/vfscount
     vfsstat:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/vfsstat
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/vfsstat
     wakeuptime:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/wakeuptime
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/wakeuptime
     xfsdist:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/xfsdist
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/xfsdist
     xfsslower:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/xfsslower
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/xfsslower
     zfsdist:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/zfsdist
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/zfsdist
     zfsslower:
-        command: sudo -E LD_LIBRARY_PATH=$LD_LIBRARY_PATH PYTHONUNBUFFERED=1 $SNAP/usr/bin/python $SNAP/usr/share/bcc/tools/zfsslower
+        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/zfsslower
 parts:
     bcc:
         plugin: cmake
