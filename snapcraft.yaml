@@ -5,12 +5,6 @@ description: A toolkit for creating efficient kernel tracing and manipulation pr
 confinement: devmode
 apps:
     argdist:
-        # ubuntu-core-launcher mounts a new instance of devpts and python
-        # cannot grab a pty, so run unbuffered (-u):
-        # https://bugs.launchpad.net/snappy/+bug/1587675
-        #
-        # Snappy does not yet support CAP_SYS_ADMIN for unconfined snaps:
-        # https://bugs.launchpad.net/snappy/+bug/1586581
         command: wrapper argdist
     bashreadline:
         command: wrapper bashreadline

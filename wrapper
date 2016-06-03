@@ -1,5 +1,9 @@
 #!/bin/sh -e
+# Snappy does not yet support CAP_SYS_ADMIN for unconfined snaps, thus sudo:
+# https://bugs.launchpad.net/snappy/+bug/1586581
+# stdout isn't set to line buffered mode:
+# https://bugs.launchpad.net/snappy/+bug/1587675
 
 cmd="$1"
 shift
-sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python "$SNAP/usr/share/bcc/tools/$cmd" $@
+sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH stdbuf -oL $SNAP/usr/bin/python "$SNAP/usr/share/bcc/tools/$cmd" $@
