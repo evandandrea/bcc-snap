@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+cmd="$1"
+shift
+sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python "$SNAP/usr/share/bcc/tools/$cmd" $@

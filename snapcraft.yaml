@@ -2,6 +2,7 @@ name: bcc
 version: 0.1.8
 summary: BPF Compiler Collection (BCC)
 description: A toolkit for creating efficient kernel tracing and manipulation programs
+confinement: devmode
 apps:
     argdist:
         # ubuntu-core-launcher mounts a new instance of devpts and python
@@ -9,99 +10,99 @@ apps:
         #
         # Snappy does not yet support CAP_SYS_ADMIN for unconfined snaps:
         # https://bugs.launchpad.net/snappy/+bug/1586581
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/argdist
+        command: wrapper argdist
     bashreadline:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/bashreadline
+        command: wrapper bashreadline
     biolatency:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/biolatency
+        command: wrapper biolatency
     biosnoop:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/biosnoop
+        command: wrapper biosnoop
     biotop:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/biotop
+        command: wrapper biotop
     bitesize:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/bitesize
+        command: wrapper bitesize
     btrfsdist:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/btrfsdist
+        command: wrapper btrfsdist
     btrfsslower:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/btrfsslower
+        command: wrapper btrfsslower
     cachestat:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/cachestat
+        command: wrapper cachestat
     dcsnoop:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/dcsnoop
+        command: wrapper dcsnoop
     dcstat:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/dcstat
+        command: wrapper dcstat
     execsnoop:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/execsnoop
+        command: wrapper execsnoop
     ext4dist:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/ext4dist
+        command: wrapper ext4dist
     ext4slower:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/ext4slower
+        command: wrapper ext4slower
     filelife:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/filelife
+        command: wrapper filelife
     fileslower:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/fileslower
+        command: wrapper fileslower
     filetop:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/filetop
+        command: wrapper filetop
     funccount:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/funccount
+        command: wrapper funccount
     funclatency:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/funclatency
+        command: wrapper funclatency
     gethostlatency:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/gethostlatency
+        command: wrapper gethostlatency
     hardirqs:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/hardirqs
+        command: wrapper hardirqs
     killsnoop:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/killsnoop
+        command: wrapper killsnoop
     mdflush:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/mdflush
+        command: wrapper mdflush
     memleak:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/memleak
+        command: wrapper memleak
     offcputime:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/offcputime
+        command: wrapper offcputime
     offwaketime:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/offwaketime
+        command: wrapper offwaketime
     oomkill:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/oomkill
+        command: wrapper oomkill
     opensnoop:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/opensnoop
+        command: wrapper opensnoop
     pidpersec:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/pidpersec
+        command: wrapper pidpersec
     runqlat:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/runqlat
+        command: wrapper runqlat
     softirqs:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/softirqs
+        command: wrapper softirqs
     stackcount:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/stackcount
+        command: wrapper stackcount
     stacksnoop:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/stacksnoop
+        command: wrapper stacksnoop
     statsnoop:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/statsnoop
+        command: wrapper statsnoop
     syncsnoop:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/syncsnoop
+        command: wrapper syncsnoop
     tcpaccept:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/tcpaccept
+        command: wrapper tcpaccept
     tcpconnect:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/tcpconnect
+        command: wrapper tcpconnect
     tcpconnlat:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/tcpconnlat
+        command: wrapper tcpconnlat
     tcpretrans:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/tcpretrans
+        command: wrapper tcpretrans
     trace:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/trace
+        command: wrapper trace
     vfscount:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/vfscount
+        command: wrapper vfscount
     vfsstat:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/vfsstat
+        command: wrapper vfsstat
     wakeuptime:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/wakeuptime
+        command: wrapper wakeuptime
     xfsdist:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/xfsdist
+        command: wrapper xfsdist
     xfsslower:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/xfsslower
+        command: wrapper xfsslower
     zfsdist:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/zfsdist
+        command: wrapper zfsdist
     zfsslower:
-        command: sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH $SNAP/usr/bin/python -u $SNAP/usr/share/bcc/tools/zfsslower
+        command: wrapper zfsslower
 parts:
     bcc:
         plugin: cmake
@@ -122,15 +123,15 @@ parts:
             - zlib1g-dev
         stage-packages:
             - python
-        filesets:
-            all:
-                - usr/bin/python*
-                - usr/share/bcc/tools
-                - usr/lib/*/lib*.so*
-                - usr/lib/python2.7
-        stage:
-            - $all
         snap:
-            - $all
+            - usr/bin/python*
+            - usr/share/bcc/tools
+            - usr/lib/*/lib*.so*
+            - usr/lib/python2.7
+            - -usr/share/bcc/tools/doc
+    glue:
+        plugin: copy
+        files:
+            wrapper: bin/wrapper
 
 # vim: set ai et sts=4 tabstop=4 sw=4:
