@@ -2,7 +2,11 @@ name: bcc
 version: 0.1.8
 summary: BPF Compiler Collection (BCC)
 description: A toolkit for creating efficient kernel tracing and manipulation programs
-confinement: devmode
+confinement: strict
+plugs:
+    mount-observe: null
+    system-observe: null
+    system-trace: null
 apps:
     argdist:
         command: wrapper argdist
