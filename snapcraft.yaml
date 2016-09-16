@@ -3,6 +3,7 @@ version: 0.1.8
 summary: BPF Compiler Collection (BCC)
 description: A toolkit for creating efficient kernel tracing and manipulation programs
 confinement: strict
+grade: stable
 plugs:
     mount-observe: null
     system-observe: null
