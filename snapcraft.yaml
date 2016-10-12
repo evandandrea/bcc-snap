@@ -1,5 +1,5 @@
 name: bcc
-version: 0.1.8
+version: 0.2.0
 summary: BPF Compiler Collection (BCC)
 description: A toolkit for creating efficient kernel tracing and manipulation programs
 confinement: strict
@@ -109,7 +109,7 @@ parts:
         configflags:
             - -DCMAKE_INSTALL_PREFIX=/usr
         source: git://github.com/iovisor/bcc
-        source-tag: v0.1.8
+        source-tag: v0.2.0
         build-packages:
             - bison
             - build-essential
@@ -121,6 +121,7 @@ parts:
             - libclang-3.7-dev
             - python
             - zlib1g-dev
+            - libelf-dev
         stage-packages:
             - python
         snap:

@@ -6,4 +6,4 @@
 
 cmd="$1"
 shift
-sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH stdbuf -oL $SNAP/usr/bin/python "$SNAP/usr/share/bcc/tools/$cmd" $@
+stdbuf -oL $SNAP/usr/bin/python "$SNAP/usr/share/bcc/tools/$cmd" $@
